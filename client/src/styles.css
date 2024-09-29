@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for video and status */
+.video-container {
+    position: fixed;
+    top: 10px; /* 10px from the top of the viewport */
+    right: 10px; /* 10px from the right of the viewport */
+    z-index: 1000; /* Make sure it's above other elements */
+    display: flex;
+    flex-direction: column; /* Stack the video and status vertically */
+    align-items: center; /* Center the content horizontally */
+  }
+  
+  /* Styling for the video element */
+  .video-element {
+    width: 160px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+  
+  /* Status box positioned below the video */
+  .status-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 5px; /* Add space between video and status */
+    text-align: center;
+    width: 160px; /* Match the video width */
+  }
+  

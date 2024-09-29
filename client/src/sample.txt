@@ -1,0 +1,38 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { SignedIn, SignedOut } from '@clerk/clerk-react';
+import './App.css';
+import LandingPage from './Pages/Landingpage';
+import Dashboard from './Pages/Dashboard';
+import Header from './Components/Header';
+import CreateTest from './Pages/CreateTest';
+import StudentList from './Pages/StudentList';
+import TestResults from './Pages/TestResults';
+import WorkInProgress from './Pages/WorkInProgress';
+
+const App = () => {
+  return (
+    <Router>
+      <div className="app-container">
+        <SignedOut>
+          <LandingPage />
+        </SignedOut>
+        <SignedIn>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard" />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/create-test" element={<CreateTest />} />
+              <Route path="/student-list" element={<StudentList />} />
+              <Route path="/test-results" element={<TestResults />} />
+              <Route path="/test/:testId/attend" element={<WorkInProgress />} />
+            </Routes>
+          </main>
+        </SignedIn>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
